@@ -190,6 +190,11 @@ Contextual QA chatbot interaction.
 - **Enter**: Send chat messages.
 - **Shift + Enter**: Insert a new line in the chat input.
 - **Interactive Demo Mode**: If working offline or demonstrating the UI without a live API key, open the **Settings (gear icon)** at the top right and toggle **Interactive Demo Mode** ON.
+## Demo Images
+<img width="1600" height="727" alt="WhatsApp Image 2026-10-02 at 11 44 44 AM" src="https://github.com/user-attachments/assets/5f952796-bc77-4647-95b4-f9c303531ea9" />
+<img width="1600" height="733" alt="WhatsApp Image 2026-10-02 at 11 44 45 AM" src="https://github.com/user-attachments/assets/a3f36dfc-36b1-48b8-aed9-da43167c9544" />
+<img width="1600" height="712" alt="WhatsApp Image 2026-10-02 at 11 44 45 AM (1)" src="https://github.com/user-attachments/assets/5802981f-d9d0-44da-958c-d4582cf5ca98" />
+
 
 ---
 
