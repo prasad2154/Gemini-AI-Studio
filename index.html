@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini AI Studio — Multimodal Intelligence Suite</title>
+  
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Animated Glow Elements -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <div class="app-wrapper">
+    <!-- Modern Sticky Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="#" class="brand-section">
+          <div class="logo-badge">
+            <svg viewBox="0 0 24 24">
+              <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/>
+            </svg>
+          </div>
+          <div class="brand-info">
+            <div class="brand-title">Gemini AI Studio</div>
+            <div class="brand-subtitle">
+              <span>Next-Gen Suite</span>
+              <span class="model-tag">gemini-3.1-flash-lite</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Controls: Status, Theme, Settings -->
+        <div class="nav-actions">
+          <div class="status-pill" id="statusPill" title="Click to refresh connection status">
+            <span class="status-dot offline" id="statusDot"></span>
+            <span id="statusText">Checking Backend...</span>
+          </div>
+
+          <button class="btn-icon" id="themeToggleBtn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+            <svg id="themeIcon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+
+          <button class="btn-icon" id="settingsBtn" aria-label="Settings" title="API & Backend Settings">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-container">
+      <nav class="nav-tabs">
+        <button class="tab-btn active" data-tab="summarize">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Text Summarizer
+        </button>
+        <button class="tab-btn" data-tab="vision">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Vision Studio
+        </button>
+        <button class="tab-btn" data-tab="chat">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          AI Chatbot
+        </button>
+      </nav>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="main-container">
+      <!-- TAB 1: TEXT SUMMARIZER -->
+      <section class="tab-view active" id="summarizeView">
+        <div class="section-header">
+          <span class="section-badge">✨ Neural Compression</span>
+          <h1 class="section-title">Intelligent Text Summarizer</h1>
+          <p class="section-desc">Condense lengthy articles, academic research, or meeting transcripts into high-impact key takeaways using Gemini.</p>
+        </div>
+
+        <div class="studio-grid">
+          <!-- Input Card -->
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <div class="card-title">Source Content</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-secondary" id="sampleSummaryBtn" title="Load sample paragraph">
+                  <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Sample
+                </button>
+                <button class="btn-secondary" id="clearSummaryBtn" title="Clear text">
+                  <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <!-- Preset chips row -->
+            <div class="chips-row" id="summaryChips"></div>
+
+            <div class="input-group">
+              <textarea class="modern-textarea" id="summaryText" placeholder="Paste your article, meeting transcript, or research notes here (or click a Quick Preset above)..."></textarea>
+              <div class="textarea-footer">
+                <div class="stats-counter">
+                  <div class="stat-item">Characters: <span id="charCount">0</span></div>
+                  <div class="stat-item">Words: <span id="wordCount">0</span></div>
+                  <div class="stat-item">Read Time: <span id="readingTime">0m</span></div>
+                </div>
+                <span style="font-size: 0.72rem; opacity: 0.8;">Ctrl+Enter to summarize</span>
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn-primary" id="summarizeBtn">
+                <svg viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/></svg>
+                Generate Summary
+              </button>
+            </div>
+          </div>
+
+          <!-- Output Card -->
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="card-title">Executive Summary</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-secondary" id="speakSummaryBtn" title="Listen to summary">
+                  <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Read Aloud
+                </button>
+                <button class="btn-secondary" id="copySummaryBtn" title="Copy to clipboard">
+                  <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="output-container">
+              <div class="output-content" id="summaryOutput">
+                <div class="output-placeholder">
+                  <div class="placeholder-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  </div>
+                  <p>Your AI-generated summary will appear here with insights and metrics.</p>
+                </div>
+              </div>
+              <div class="output-meta-bar" id="summaryMetaBar" style="display: none;">
+                <span class="reduction-badge" id="reductionBadge">📉 68% condensed</span>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Formatted with Gemini</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: VISION STUDIO -->
+      <section class="tab-view" id="visionView">
+        <div class="section-header">
+          <span class="section-badge">👁️ Multimodal Vision</span>
+          <h1 class="section-title">Image Explanation Studio</h1>
+          <p class="section-desc">Upload photos, diagrams, charts, or UI wireframes to unlock deep contextual insights and detailed explanations.</p>
+        </div>
+
+        <div class="studio-grid">
+          <!-- Upload Card -->
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <div class="card-title">Image Input</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-secondary" id="sampleVisionDiagram" title="Load sample neural diagram">Diagram</button>
+                <button class="btn-secondary" id="sampleVisionChart" title="Load sample trend chart">Chart</button>
+              </div>
+            </div>
+
+            <!-- Drag & Drop Zone -->
+            <div class="dropzone" id="dropzone">
+              <input type="file" id="imageInput" accept="image/*">
+              <div class="dropzone-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </div>
+              <div class="dropzone-title">Click to upload or drag & drop</div>
+              <div class="dropzone-subtitle">PNG, JPG, WEBP, or GIF (You can also press Ctrl+V to paste)</div>
+            </div>
+
+            <!-- Image Preview Box -->
+            <div class="preview-container" id="previewContainer">
+              <div class="scanner-line" id="scannerLine"></div>
+              <img id="previewImage" class="previewImage" alt="Upload Preview">
+              <div class="preview-overlay">
+                <button class="btn-secondary" id="removeImageBtn" style="background: rgba(0,0,0,0.65); color: #fff;">
+                  <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  Remove
+                </button>
+              </div>
+              <div class="preview-info">
+                <span id="previewName">image.png</span>
+                <span id="previewSize">0 KB</span>
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn-primary" id="explainBtn">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Explain Image
+              </button>
+            </div>
+          </div>
+
+          <!-- Explanation Result Card -->
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <div class="card-title">Vision Insights</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-secondary" id="speakImageTextBtn" title="Read explanation aloud">
+                  <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Read Aloud
+                </button>
+                <button class="btn-secondary" id="copyImageTextBtn" title="Copy text">
+                  <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="output-container">
+              <div class="output-content" id="imageOutput">
+                <div class="output-placeholder">
+                  <div class="placeholder-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  </div>
+                  <p>Upload an image and click "Explain Image" to reveal structural analysis and insights.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: CHATBOT (QA) -->
+      <section class="tab-view" id="chatView">
+        <div class="chat-wrapper">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="chat-avatar-info">
+              <div class="bot-avatar-badge">
+                <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+              </div>
+              <div>
+                <div class="chat-bot-name">Gemini Intelligent Assistant</div>
+                <div class="chat-bot-status">Active & Ready</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn-secondary" id="exportChatBtn" title="Export conversation as Markdown">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export
+              </button>
+              <button class="btn-secondary" id="clearChatBtn" title="Clear conversation history">
+                <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Chat Messages Area -->
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-welcome">
+              <div class="chat-welcome-icon">
+                <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+              </div>
+              <h3>How can I assist you today?</h3>
+              <p>Ask anything, explore deep domain knowledge, or choose a curated topic below.</p>
+              <div class="chat-starters" id="chatStartersContainer"></div>
+            </div>
+          </div>
+
+          <!-- Typing Indicator -->
+          <div style="padding: 0 24px 8px;">
+            <div class="typing-indicator" id="typingIndicator">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span style="font-size: 0.78rem; color: var(--text-muted); margin-left: 6px;">Gemini is thinking...</span>
+            </div>
+          </div>
+
+          <!-- Chat Input Bar -->
+          <div class="chat-input-bar">
+            <div class="chat-input-wrapper">
+              <textarea class="chat-textarea" id="chatInput" placeholder="Type your question... (Enter to send, Shift+Enter for new line)"></textarea>
+            </div>
+            <button class="send-btn" id="sendChatBtn" aria-label="Send message" title="Send message (Enter)">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div>Powered by <strong>Google Gemini API</strong> • Designed for High-Performance Multimodal Workflows</div>
+    </footer>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">Studio Settings</div>
+        <button class="btn-icon" id="closeSettingsBtn" aria-label="Close">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label class="field-label" for="backendUrlInput">Backend API Endpoint</label>
+          <input type="text" id="backendUrlInput" class="field-input" placeholder="http://localhost:8000">
+          <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: block;">Default is <code>http://localhost:8000</code>. Point to your custom FastAPI server if needed.</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--border-subtle); margin-top: 8px;">
+          <div>
+            <div style="font-weight: 600; font-size: 0.9rem;">Interactive Demo Mode</div>
+            <div style="font-size: 0.76rem; color: var(--text-muted);">Simulate realistic AI responses when offline</div>
+          </div>
+          <input type="checkbox" id="demoModeToggle" style="width: 20px; height: 20px; accent-color: var(--accent-primary); cursor: pointer;">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="saveSettingsBtn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
